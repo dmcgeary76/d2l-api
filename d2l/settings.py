@@ -10,7 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-import os, django_heroku
+import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -83,11 +84,17 @@ WSGI_APPLICATION = 'd2l.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# In production on Heroku the database configuration is derived from the `DATABASE_URL`
+# environment variable by the dj-database-url package. `DATABASE_URL` will be set
+# automatically by Heroku when a database addon is attached to your Heroku app. See:
+# https://devcenter.heroku.com/articles/provisioning-heroku-postgres
+# https://github.com/jazzband/dj-database-url
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    "default": dj_database_url.config(
+        conn_max_age=600,
+        conn_health_checks=True,
+        ssl_require=True,
+    ),
 }
 
 
