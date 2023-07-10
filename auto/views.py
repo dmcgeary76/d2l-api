@@ -9,7 +9,7 @@ os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 # Create your views here.
 def index(request):
     context = {}
-    get_token()
+    #get_token()
     return render(request, 'auto/index.html', context)
 
 #Store a few variables to test API connection
