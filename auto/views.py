@@ -34,10 +34,11 @@ def get_token():
     authorization_url, state = oauth.authorization_url("https://auth.brightspace.com/oauth2/auth")
     print(authorization_url)
 
+    authorization_code = 'ac.us-east-1.czelmLbPSmoq2xnzZDm56Ot8kLxW080uuYa7ty5qFNU&state=CrqqcTFCI3JKk3WDtZwzUyX0AOvflK'
     
-    #token = oauth.fetch_token(
-    #    "https://auth.brightspace.com/core/connect/token",
-    #    authorization_response=authorization_code,
-    #    client_secret = client_secret
-    #)
+    token = oauth.fetch_token(
+        "https://auth.brightspace.com/core/connect/token",
+        authorization_response=authorization_code,
+        client_secret = client_secret
+    )
     
