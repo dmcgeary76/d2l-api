@@ -1,1 +1,1 @@
-web: gunicorn ecwc.wsgi
+web:gunicorn auto.wsgi
