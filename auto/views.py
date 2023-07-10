@@ -9,7 +9,7 @@ os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 # Create your views here.
 def index(request):
     context = {}
-    #get_token()
+    get_token()
     return render(request, 'auto/index.html', context)
 
 #Store a few variables to test API connection
@@ -18,7 +18,7 @@ client_id = '370b8ba9-a004-4950-aa27-8af6b8ef25e5'
 client_secret = 'yoxhApjjthpOZMq9vOW2hsc4WKsXpK5wArqaCrFYcsE'
 scope = 'core:*:*'
 auth_url = 'https://auth.brightspace.com/oauth2/auth'
-redirect_uri = 'https://localhost:8000'
+redirect_uri = 'https://d2l-api-ef3d222f3fa5.herokuapp.com/'
 grant_type = 'client_credentials'
 
 curl_text = 'https://auth.brightspace.com/oauth2/auth?client_id=370b8ba9-a004-4950-aa27-8af6b8ef25e5&client_sceret=yoxhApjjthpOZMq9vOW2hsc4WKsXpK5wArqaCrFYcsE&scope=core:*:*&redirect_uri=https://localhost:8000&grant_type=client_credentials&response_type=code'
